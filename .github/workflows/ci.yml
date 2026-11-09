@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  core:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: "latest"
+
+      - name: 版本一致性
+        run: python tools/check_version.py
+
+      - name: 配置（仅核心，不拉 LeviLamina）
+        run: xmake f -y -p windows -a x64 -m release --toolchain=clang-cl --with_native=n
+
+      - name: 构建核心与单测
+        run: xmake build -y litematicabds_tests litematica_core
+
+      - name: 跑单测
+        run: build/windows/x64/release/litematicabds_tests.exe
+
+      - name: C ABI 冒烟
+        run: python platform/endstone/tests/test_core_abi.py
+
+      - name: endstone 套壳（假平台 + 真 core）
+        run: python platform/endstone/tests/test_plugin_fakes.py
+
+      - name: 打 endstone wheel
+        run: python tools/pack_endstone.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: endstone-wheel
+          path: dist/*.whl

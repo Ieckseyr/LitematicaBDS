@@ -1,0 +1,43 @@
+{
+    "format_version": 3,
+    "format_uuid": "3620d9ca-1707-4591-9df0-312a183bcac3",
+    "tooth": "github.com/Ieckseyr/LitematicaBDS",
+    "version": "0.1.0",
+    "info": {
+        "name": "LitematicaBDS",
+        "description": "纯服务端投影：HologramLib 假方块渲染 .litematic（C++ 核心，LeviLamina + endstone 双平台）",
+        "tags": [
+            "platform:levilamina",
+            "platform:endstone",
+            "type:mod",
+            "minecraft-bedrock",
+            "litematica",
+            "projection",
+            "cpp"
+        ]
+    },
+    "variants": [
+        {
+            "platform": "win-x64",
+            "dependencies": {
+                "github.com/LiteLDev/LeviLamina": "26.60.*",
+                "github.com/Ieckseyr/HologramLib": "26.60.*"
+            },
+            "assets": [
+                {
+                    "type": "zip",
+                    "urls": [
+                        "https://{{tooth}}/releases/download/v{{version}}/LitematicaBDS-{{version}}.zip"
+                    ],
+                    "placements": [
+                        {
+                            "type": "dir",
+                            "src": "LitematicaBDS/",
+                            "dest": "mods/LitematicaBDS"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+* text=auto
+*.litematic binary
+*.dll binary
+*.lib binary

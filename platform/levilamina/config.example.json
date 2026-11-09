@@ -1,0 +1,41 @@
+{
+  // 渲染：每 tick 每玩家最多发多少个假方块
+  "render": {
+    "blocksPerTick": 256,
+    "clearPerTick": 512,
+    "viewDistance": 64,
+    "autoLayerRadius": 2,
+    "surfaceOnly": true,
+    "maxBlocksPerViewer": 30000,
+    "planMoveThreshold": 4,
+    "showStatusHud": false
+  },
+  "projection": {
+    "showBounds": true,
+    "boundsColor": "#00FF00",
+    "defaultRotation": 0,
+    "defaultMirrorX": false,
+    "defaultMirrorZ": false
+  },
+  "sulfur": {
+    "enabled": true,
+    "radius": 8,
+    "maxDisplays": 64,
+    "visible": false,
+    "faceBlock": true
+  },
+  "fill": {
+    "enabled": true,
+    "requireOp": false,
+    "consumeItem": true,
+    "quickFill": false
+  },
+  "save": {
+    "maxVolume": 262144
+  },
+  "storage": {
+    "schematicsDir": "schematics",
+    "exportsDir": "exports"
+  },
+  "debug": false
+}

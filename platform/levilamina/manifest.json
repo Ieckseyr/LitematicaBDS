@@ -1,0 +1,14 @@
+{
+    "name": "LitematicaBDS",
+    "entry": "LitematicaBDS.dll",
+    "version": "0.1.0",
+    "type": "native",
+    "platform": "server",
+    "author": "Ieckseyr",
+    "description": "纯服务端投影：用 HologramLib 假方块显示 .litematic 投影，支持逐层/旋转/镜像/材料清单；C++ 实现，双平台（LeviLamina 原生 + endstone 套壳）",
+    "dependencies": [
+        {
+            "name": "HologramLib"
+        }
+    ]
+}
